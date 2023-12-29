@@ -30,11 +30,18 @@ go mod download
 # Set your Spotify API credentials as environment variables
 export SPOTIFY_CLIENT_ID="09ebbaeee98247e2b40fb4293da990f4" # your_client_id
 export SPOTIFY_CLIENT_SECRET="1689b0d4dccf442690ae1022165b9c2a" #your_client_secret
-
+export MUSICTRACK_APP_PORT=8000
 
 # Build and run the project
 go run main.go
 
+```
+
+```bash
+# Build the executable binary:
+cd music-tracks
+go build
+./musictracs
 ```
 
 # Music Tracks API
