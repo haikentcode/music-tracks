@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -70,8 +71,8 @@ func GetTrackByISRC(isrc string) (*SpotifyResponse, error) {
 
 func getSpotifyAccessToken() (string, error) {
 	tokenURL := "https://accounts.spotify.com/api/token"
-	clientID := "09ebbaeee98247e2b40fb4293da990f4"
-	clientSecret := "1689b0d4dccf442690ae1022165b9c2a"
+	clientID := os.Getenv("SPOTIFY_CLIENT_ID")
+	clientSecret := os.Getenv("SPOTIFY_CLIENT_SECRET")
 	grantType := "client_credentials"
 
 	// Create a new HTTP request to get the access token
