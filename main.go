@@ -23,7 +23,6 @@ func main() {
 
 	port := os.Getenv("MUSICTRACK_APP_PORT")
 
-	// Set a default value if the environment variable is not set
 	if port == "" {
 		fmt.Printf("Error: Environment variable %s is not set.\n", "MUSICTRACK_APP_PORT")
 		os.Exit(1)
