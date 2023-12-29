@@ -1,0 +1,50 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Track</title>
+  </head>
+  <body>
+    <h1>Create Track</h1>
+
+    <form id="trackForm">
+      <label for="isrc">ISRC:</label>
+      <input type="text" id="isrc" name="isrc" required />
+
+      <button type="button" onclick="createTrack()">Create Track</button>
+    </form>
+
+    <hr />
+
+    <h2>Result</h2>
+    <div id="result"></div>
+
+    <script>
+      async function createTrack() {
+        const isrc = document.getElementById("isrc").value;
+
+        const response = await fetch(`/api/v1/create-track/${isrc}`, {
+          method: "GET",
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          displayResult(result);
+        } else {
+          alert("Failed to create track");
+        }
+      }
+
+      function displayResult(result) {
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = `<p>Track Created:</p>
+                               <p>ISRC: ${result.top.ISRC}</p>
+                               <p>Title: ${result.top.Title}</p>
+                               <p>Popularity: ${result.top.Popularity}</p>
+                               <image src="${result.top.SpotifyImageURI}">`;
+      }
+    </script>
+  </body>
+</html>
