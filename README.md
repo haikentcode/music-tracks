@@ -28,8 +28,8 @@ cd music-tracks
 go mod download
 
 # Set your Spotify API credentials as environment variables
-export SPOTIFY_CLIENT_ID=your_client_id
-export SPOTIFY_CLIENT_SECRET=your_client_secret
+export SPOTIFY_CLIENT_ID="09ebbaeee98247e2b40fb4293da990f4" # your_client_id
+export SPOTIFY_CLIENT_SECRET="1689b0d4dccf442690ae1022165b9c2a" #your_client_secret
 
 
 # Build and run the project
