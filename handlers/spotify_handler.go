@@ -96,5 +96,5 @@ func CreateTrackByISRC(c *gin.Context) {
 	tx.Commit()
 
 	// Return the track in the response
-	c.JSON(http.StatusOK, gin.H{"top": topTrack, "all_traks": tracks})
+	c.JSON(http.StatusOK, gin.H{"top": track, "all_traks": tracks})
 }

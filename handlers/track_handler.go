@@ -35,7 +35,10 @@ func GetTracksByArtist(c *gin.Context) {
 	// Perform a "like" search in the DB for tracks associated with the given artist
 	var tracks []models.Track
 	db := db.GetDB() // Adjust this based on how you manage your database connections
-	db.Preload("Artists", "name LIKE ?", "%"+artistName+"%").Find(&tracks)
+	db.Preload("Artists").Joins("JOIN track_artists ON track_artists.track_id = tracks.id").
+		Joins("JOIN artists ON track_artists.artist_id = artists.id").
+		Where("artists.name LIKE ?", "%"+artistName+"%").
+		Find(&tracks)
 
 	// Return the list/array of tracks associated with the artist
 	c.JSON(http.StatusOK, tracks)

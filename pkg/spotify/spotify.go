@@ -8,13 +8,6 @@ import (
 	"strings"
 )
 
-type TrackMetadata struct {
-	ImageURI   string   `json:"image_uri"`
-	Title      string   `json:"title"`
-	Artists    []string `json:"artist_names"`
-	Popularity int      `json:"popularity"`
-}
-
 type Item struct {
 	Album struct {
 		Images []struct {
