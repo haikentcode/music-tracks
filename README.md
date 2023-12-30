@@ -12,6 +12,7 @@ This project is a simple API built with Go and Gin that interacts with the Spoti
 - [Usage](#usage)
 - [API Endpoints](#music-tracks-api)
 - [Project Structure](#project-structure)
+- [Database](#database)
 
 ## Installation
 
@@ -134,3 +135,10 @@ curl -X GET ${API_HOST}/v1/tracks/by-artist/your-artist-name
 │   └── routes.go
 └── test.db
 ```
+
+
+# Database
+
+## Description
+
+This repository contains an SQLite database file named `test.db`. The purpose of this database is to store tracks meta data
